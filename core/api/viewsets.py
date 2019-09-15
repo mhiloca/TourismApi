@@ -1,4 +1,5 @@
 from rest_framework import viewsets
+from rest_framework.filters import SearchFilter
 from rest_framework.decorators import action
 from rest_framework.response import Response
 
@@ -10,6 +11,8 @@ from .serializers import PontoTuristicoSerializer
 class PontoTuristicoViewSet(viewsets.ModelViewSet):
 
     serializer_class = PontoTuristicoSerializer
+    filter_backends = [SearchFilter]
+    search_fields = ['name', '^description']
     # http_method_names = ['get']
 
     def get_queryset(self):
@@ -30,9 +33,13 @@ class PontoTuristicoViewSet(viewsets.ModelViewSet):
         return res.filter(status=True)
 
 
-
     # @action(methods=['post', 'get'], detail=False)
     # def teste(self, request, pk=None):
     #     return Response
 
+    # @action(methods=['get'], detail=False)
+    # def images(self, request, pk=None):
+    #     photo = self.request.query_params.get('photo', None)
+    #     queryset = PontoTuristico.objects.all()
+    #     return queryset.filter(photo=photo)
 
