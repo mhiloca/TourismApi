@@ -3,6 +3,7 @@ from attractions.models import Attraction
 from comments.models import Comment
 from reviews.models import Review
 from locations.models import Location
+from teste.models import Teste
 
 
 class PontoTuristico(models.Model):
@@ -16,10 +17,9 @@ class PontoTuristico(models.Model):
         Location,
         on_delete=models.CASCADE,
         db_constraint=False,
-        default=0,
-        null=True,
-        blank=True
+        default=0
     )
+    mock_test = models.ManyToManyField(Teste)
 
     def __str__(self):
         return self.name

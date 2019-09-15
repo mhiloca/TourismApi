@@ -21,14 +21,23 @@ from attractions.api.viewsets import AttractionViewSet
 from locations.api.viewsets import LocationViewSet
 from comments.api.viewsets import CommentViewSet
 from reviews.api.viewsets import ReviewViewSet
-
+from teste.api.viewsets import TesteViewSet
 
 router = routers.DefaultRouter()
-router.register(r'pontoturistico', PontoTuristicoViewSet)
+router.register(
+    r'pontoturistico',
+    PontoTuristicoViewSet,
+    base_name='PontoTuristico'
+)
 router.register(r'attractions', AttractionViewSet)
 router.register(r'locations', LocationViewSet)
-router.register(r'comments', CommentViewSet)
+router.register(
+    r'comments',
+    CommentViewSet,
+    base_name='Comment'
+)
 router.register(r'reviews', ReviewViewSet)
+router.register(r'teste', TesteViewSet)
 
 
 urlpatterns = [
