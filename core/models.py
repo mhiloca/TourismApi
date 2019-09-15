@@ -20,6 +20,7 @@ class PontoTuristico(models.Model):
         default=0
     )
     mock_test = models.ManyToManyField(Teste)
+    photo = models.ImageField(upload_to='touristic_places', null=True, blank=True)
 
     def __str__(self):
         return self.name

@@ -15,28 +15,6 @@ class PontoTuristicoViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         return PontoTuristico.objects.all().filter(status=True)
 
-    # def list(self, request, *args, **kwargs):
-    #     pass
-    #
-    # def create(self, request, *args, **kwargs):
-    #     pass
-    #
-    # def destroy(self, request, *args, **kwargs):
-    #     pass
-    #
-    # def retrieve(self, request, *args, **kwargs):
-    #     pass
-    #
-    # def update(self, request, *args, **kwargs):
-    #     pass
-
-    # def partial_update(self, request, *args, **kwargs):
-    #     pass
-
-    # @action(methods=['post'], detail=True)
-    # def denunciate(self, request, pk=None):
-    #     pass
-
     @action(methods=['post', 'get'], detail=False)
     def teste(self, request, pk=None):
         return Response(TesteViewSet.queryset)

@@ -9,5 +9,6 @@ class AttractionSerializer(serializers.ModelSerializer):
             'name',
             'description',
             'work_hours',
-            'min_age'
+            'min_age',
+            'photo'
         )
