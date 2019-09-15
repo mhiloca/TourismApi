@@ -16,7 +16,9 @@ class PontoTuristico(models.Model):
         Location,
         on_delete=models.CASCADE,
         db_constraint=False,
-        default=0
+        default=0,
+        null=True,
+        blank=True
     )
 
     def __str__(self):
