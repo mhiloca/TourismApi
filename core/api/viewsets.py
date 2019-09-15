@@ -5,7 +5,7 @@ from rest_framework.response import Response
 
 from core.models import PontoTuristico
 from teste.api.viewsets import TesteViewSet
-from .serializers import PontoTuristicoSerializer
+from .serializers import PontoTuristicoSerializer, CompletePontoTuristicoSerializer
 
 
 class PontoTuristicoViewSet(viewsets.ModelViewSet):
@@ -42,4 +42,10 @@ class PontoTuristicoViewSet(viewsets.ModelViewSet):
     #     photo = self.request.query_params.get('photo', None)
     #     queryset = PontoTuristico.objects.all()
     #     return queryset.filter(photo=photo)
+
+
+class CompletePontoTuristicoViewSet(viewsets.ModelViewSet):
+
+    serializer_class = CompletePontoTuristicoSerializer
+    queryset = PontoTuristico.objects.all().filter(status=True)
 
